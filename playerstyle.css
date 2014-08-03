@@ -1,0 +1,60 @@
+
+#layout {
+	position	:	relative;
+}
+
+.players-container {
+	width		:	250px;
+	height		:	500px;
+	background	:	rgba(255,0,0,0.1);
+	position	:	absolute;
+		
+}
+
+.edit-pane-container {
+	width		:	400px;
+	height		:	500px;
+	background	:	rgba(0,0,255,0.2);
+	position	:	absolute;
+	left		:	250px;
+}
+
+.players-list {
+	overflow	:	scroll;
+	height		:	450px;
+	width		:	100%;
+}
+
+.players-controls {
+	height		:	50px
+}
+
+.player-item {
+	margin		:	2px;
+	width 		:	250px;
+	height 		:	30px;
+	background 	:	rgba(255,0,0,0.6);
+	border-radius	:	8px;
+}
+
+.because-i-can{
+	display		:	inline-block;
+	background	:	rgba(0,255,130,1.0);
+	height		:	20px;
+}
+
+.name-go-here{
+	display		:	inline-block;
+	width		:	125px;
+	height		:	25px;
+	overflow	:	hidden;
+}
+
+.check-box{
+	margin		:	auto;
+	display		:	inline-block;
+}
+
+.player-item.selected{
+	background :	rgba(0,0,255,0.2);
+}

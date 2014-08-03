@@ -1,0 +1,317 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tracker.html",
+			"settings":
+			{
+				"buffer_size": 1220,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "script.js",
+			"settings":
+			{
+				"buffer_size": 3310,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "playerstyle.css",
+			"settings":
+			{
+				"buffer_size": 775,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 491.0,
+		"history":
+		[
+			"where jshint",
+			"where SublimeLinter-jshint",
+			"git",
+			"git init",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/JavaScript/Object-key-key-value.sublime-snippet",
+		"/C/Program Files/Sublime Text 3/Packages/JavaScript/Object-key-key-value.sublime-snippet",
+		"/C/Program Files/Sublime Text 3/Packages/JavaScript.sublime-package",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/H/Sublime Text 3/Packages/JavaScript.sublime-package",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/I/Projects/git-notes.txt",
+		"/I/Dropbox/javascript project/encounter tracking/tracker.html",
+		"/I/Dropbox/javascript project/encounter tracking/stylesheet.css",
+		"/I/Dropbox/javascript project/encounter tracking/script.js",
+		"/I/Dropbox/javascript project/encounter tracking/jquery.js",
+		"/I/Dropbox/javascript project/munchkin/card_schema.json",
+		"/I/Dropbox/javascript project/munchkin/jakes_idea.json",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/I/Dropbox/javascript project/minecraft calc/casey.js",
+		"/I/Dropbox/javascript project/minecraft calc/testjs.js",
+		"/H/Minecraft/ftb/Direwolf20_1_6_4/minecraft/mods/Morph.cfg",
+		"/I/Dropbox/javascript project/minecraft calc/script.js",
+		"/I/Dropbox/javascript project/minecraft calc/test.html",
+		"/I/Dropbox/javascript project/minecraft calc/stylesheet.css",
+		"/I/Dropbox/javascript project/minecraft calc/mineCalc.html",
+		"/I/Dropbox/javascript project/minecraft calc/jquery.js",
+		"/I/Dropbox/javascript project/mineCalc.html",
+		"/I/Dropbox/javascript project/git-notes.txt",
+		"/I/Dropbox/javascript project/Dash/test.html",
+		"/C/Users/Jake/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"hasChecked",
+			"function",
+			"hasDying",
+			"dying",
+			"delete"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tracker.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1220,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "script.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								543,
+								543
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "playerstyle.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 775,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 88.0
+	},
+	"project": "encounter-tracker.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
