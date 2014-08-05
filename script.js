@@ -37,6 +37,36 @@ var Players = Backbone.Collection.extend({
 	}
 });
 
+var AppView	=	Backbone.View.extend({
+	className: "app",
+	template: _.template($("#app-view-template").html()),
+
+	initialize: function () {
+		this.players = new Players();
+	},
+
+	render:	function () {
+		this.$el.html(this.template());
+
+		var playersView = new PlayersView({
+			collection: this.players
+		}).render();
+
+		this.$el.find('.players-container').append(playersView.el);
+
+		// THESE ARE FOR DEBUGGING ONLY!
+		this.players.add({ name: 'a', selected: true });
+		this.players.add({ name: 'b' });
+
+		return this;
+	}
+});
+
+var	TopBarView	=	Backbone.View.extend({
+	className	:	"top-bar",
+	template	:	_.template($("#top-bar-template").html())
+});
+
 var PlayerView =	Backbone.View.extend({
 	className	:	"player-item",
 	template	:	_.template( $("#player-item-template").html()),
@@ -55,9 +85,11 @@ var PlayerView =	Backbone.View.extend({
 		if (playerData.selected) {
 			this.initializeEditView();
 		}
+		return this;
 	},
-	toggleChecked	:	function(){
-		var previous	=	this.model.get('checked');
+	toggleChecked:	function (event) {
+		event.stopPropagation();
+		var previous = this.model.get('checked');
 		this.model.set('checked', !previous);
 	},
 	select	:	function() {
@@ -75,6 +107,8 @@ var PlayerView =	Backbone.View.extend({
 });
 
 var PlayersView	=	Backbone.View.extend({
+	className	:	"players-list",
+	template	:	_.template($("#players-list-template").html()),
 	events		:	{
 		"click .add-player" 	:	"addNewPlayer",
 		"input .player-input"	:	"toggleAddButton",
@@ -85,12 +119,14 @@ var PlayersView	=	Backbone.View.extend({
 		this.listenTo(this.collection, "add", this.addPlayerView);
 		this.listenTo(this.collection, "change:checked", this.killButtonToggle);
 	},
-	render	:	function(){
+	render:	function(){
+		this.$el.html(this.template());
+
 		this.addBtn	= this.$el.find(".add-player");
 		this.killBtn = this.$el.find(".kill-selected");
 		this.input = this.$el.find(".player-input");
-		return this;
 
+		return this;
 	},
 	addPlayerView:	function(model){
 		var childView	= new PlayerView({model : model});
@@ -129,6 +165,7 @@ var EditView = Backbone.View.extend({
 	template	:	_.template( $("#edit-pane-template").html()),
 	initialize	:	function(){
 		this.listenTo(this.model, "change:selected", this.cleanup);
+		this.listenTo(this.model, "destroy", this.remove);
 	},
 	events		:	{
 		'click .save-edit'	: 'saveNotes'
@@ -141,6 +178,7 @@ var EditView = Backbone.View.extend({
 	render		:	function(){
 		var playerData	=	this.model.toJSON();
 		this.$el.html(this.template(playerData));
+		return this;
 	},
 	saveNotes	:	function(){
 		var value =	this.$el.find(".player-notes").val();
@@ -148,13 +186,14 @@ var EditView = Backbone.View.extend({
 	}
 });
 
-var players = new Players();
-var playersView = new PlayersView({
-	collection : players,
-	el	:	$(".players-container")[0]	
-}).render();
 
-players.add({ name: 'a', selected: true });
-players.add({ name: 'b' });
+
+
+
+
+
+var thisApp = new AppView({ el: $("#app") }).render();
+
+
 
 
