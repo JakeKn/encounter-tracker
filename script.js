@@ -52,6 +52,10 @@ var AppView	=	Backbone.View.extend({
 			collection: this.players
 		}).render();
 
+		var topBar = new TopBarView().render();
+
+
+		this.$el.find('.top-bar-container').append(topBar.el);
 		this.$el.find('.players-container').append(playersView.el);
 
 		// THESE ARE FOR DEBUGGING ONLY!
@@ -64,7 +68,12 @@ var AppView	=	Backbone.View.extend({
 
 var	TopBarView	=	Backbone.View.extend({
 	className	:	"top-bar",
-	template	:	_.template($("#top-bar-template").html())
+	template	:	_.template($("#top-bar-template").html()),
+	render:	function (){
+		this.$el.html(this.template());
+		return this;
+	}
+
 });
 
 var PlayerView =	Backbone.View.extend({
