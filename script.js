@@ -45,7 +45,7 @@ var Players = Backbone.Collection.extend({
 		else{
 			this.at(turn+1).set('active', true);
 		}
-		
+		console.log(this.findWhere({"active" : true}).get('name'));
 	}
 });
 
@@ -56,10 +56,6 @@ var AppView	=	Backbone.View.extend({
 	initialize: function () {
 		this.players = new Players();
 	},
-	events:	{
-	
-	},
-
 	render:	function () {
 		this.$el.html(this.template());
 
@@ -67,14 +63,14 @@ var AppView	=	Backbone.View.extend({
 			collection: this.players
 		}).render();
 
-		var topBar = new TopBarView().render();
+		var topBar = new TopBarView({collection: this.players}).render();
 
 
 		this.$el.find('.top-bar-container').append(topBar.el);
 		this.$el.find('.players-container').append(playersView.el);
 
 		// THESE ARE FOR DEBUGGING ONLY!
-		this.players.add({ name: 'a', selected: true });
+		this.players.add({ name: 'a', selected: true, active: true});
 		this.players.add({ name: 'b' });
 
 		return this;
@@ -84,9 +80,15 @@ var AppView	=	Backbone.View.extend({
 var	TopBarView	=	Backbone.View.extend({
 	className	:	"top-bar",
 	template	:	_.template($("#top-bar-template").html()),
+	events:	{
+		"click .next-turn": "advanceTurn"
+	},
 	render:	function (){
 		this.$el.html(this.template());
 		return this;
+	},
+	advanceTurn: function(){
+		this.collection.advanceTurn();
 	}
 
 });
