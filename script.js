@@ -15,7 +15,7 @@ var PlayerModel = Backbone.Model.extend({
 
 var Players = Backbone.Collection.extend({
 	model: PlayerModel,
-	removeChecked	:	function(){
+	removeChecked:	function(){
 		var deadMen	= this.where({"checked" : true});
 		deadMen.forEach(function(model){ 
 			if (model.get("checked")){
@@ -23,17 +23,29 @@ var Players = Backbone.Collection.extend({
 			}
 		});
 	},
-	hasChecked	:	function(){
+	hasChecked:	function(){
 		return this.some(function (model) { return model.get('checked'); });
 		
 	},
-	select		:	function(player){
+	select:	function(player){
 		var selected	=	this.findWhere({"selected" : true});
 		if (selected){
 			selected.set("selected", false);
 		}
 
 		player.set("selected", true);
+	},
+	advanceTurn: function(){
+		var active = this.findWhere({"active" : true});
+		var turn = this.indexOf(active);
+		this.at(turn).set('active', false);
+		if (turn+1 >= this.length) {
+			this.at(0).set('active', true);
+		}
+		else{
+			this.at(turn+1).set('active', true);
+		}
+		
 	}
 });
 
@@ -43,6 +55,9 @@ var AppView	=	Backbone.View.extend({
 
 	initialize: function () {
 		this.players = new Players();
+	},
+	events:	{
+	
 	},
 
 	render:	function () {
