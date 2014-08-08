@@ -10,9 +10,9 @@ define(function (require) {
 		Backbone = require('backbone'),
 		Players = require('collections/players'),
 		PlayersView = require('views/players'),
-		TopBarView = require('views/topbar');
+		TopBarView = require('views/topbar'),
+		Template = require('text!templates/app.html');
 
-		// template = require('text!templates/app.html');
 
 	// ----------------------------------------
 	// EXPORTS
@@ -20,7 +20,7 @@ define(function (require) {
 
 	return Backbone.View.extend({
 		className: "app",
-		template: _.template($("#app-view-template").html()),
+		template: _.template(Template),
 
 		initialize: function () {
 			this.players = new Players();
@@ -45,5 +45,6 @@ define(function (require) {
 			return this;
 		}
 	});
+
 });
 

@@ -8,7 +8,8 @@ define(function (require) {
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		Backbone = require('backbone'),
-		EditView = require('views/edit');
+		EditView = require('views/edit'),
+		Template = require('text!templates/player.html');
 
 
 	// ----------------------------------------
@@ -18,7 +19,7 @@ define(function (require) {
 	return Backbone.View.extend({
 
 		className: "player-item",
-		template: _.template( $("#player-item-template").html()),
+		template: _.template(Template),
 
 		events:	{
 			"click .kill-box": "toggleChecked",

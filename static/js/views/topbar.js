@@ -6,7 +6,8 @@ define(function (require) {
 
 	var $ = require('jquery'),
 		_ = require('underscore'),
-		Backbone = require('backbone');
+		Backbone = require('backbone'),
+		Template = require('text!templates/topbar.html');
 
 
 	// ----------------------------------------
@@ -15,7 +16,7 @@ define(function (require) {
 
 	return Backbone.View.extend({
 		className: "top-bar",
-		template: _.template($("#top-bar-template").html()),
+		template: _.template(Template),
 
 		events:	{
 			"click .start-turn": "firstTurn",

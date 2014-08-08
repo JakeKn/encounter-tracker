@@ -7,7 +7,8 @@ define(function (require) {
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		Backbone = require('backbone'),
-		PlayerView = require('views/player');
+		PlayerView = require('views/player'),
+		Template = require('text!templates/players.html');
 
 
 	// ----------------------------------------
@@ -16,7 +17,7 @@ define(function (require) {
 
 	return Backbone.View.extend({
 		className: "players",
-		template: _.template($("#players-list-template").html()),
+		template: _.template(Template),
 
 		events:	{
 			"click .add-player": "addNewPlayer",

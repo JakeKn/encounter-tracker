@@ -6,7 +6,8 @@ define(function (require) {
 
 	var $ = require('jquery'),
 		_ = require('underscore'),
-		Backbone = require('backbone');
+		Backbone = require('backbone'),
+		Template = require('text!templates/edit.html');
 
 
 	// ----------------------------------------
@@ -15,10 +16,10 @@ define(function (require) {
 
 	return Backbone.View.extend({
 		className: "edit-pane",
-		template: _.template( $("#edit-pane-template").html()),
+		template: _.template(Template),
 
 		events:	{
-			'click .save-edit'	: 'saveNotes'
+			'click .save-edit': 'saveNotes'
 		},
 
 		initialize:	function () {
