@@ -1,5 +1,5 @@
 
-#layout {
+#app {
 	position	:	relative;
 }
 
@@ -27,9 +27,10 @@
 }
 
 .players-list {
-	overflow	:	scroll;
-	height		:	450px;
-	width		:	100%;
+	overflow-x:	hidden;
+	overflow-y: scroll;
+	height:		450px;
+	width: 		100%;
 }
 
 .players-controls {
@@ -38,7 +39,7 @@
 
 .player-item {
 	margin		:	2px;
-	width 		:	250px;
+	width 		:	100%;
 	height 		:	30px;
 	background 	:	rgba(255,0,0,0.6);
 	border-radius	:	8px;

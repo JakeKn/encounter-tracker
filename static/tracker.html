@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>your mom</title>
+	<link rel="stylesheet" type="text/css" href="playerstyle.css">
+	<script data-main="js/main" src="js/libs/require.js"></script>
+</head>
+
+<body>
+	<div id="app"></div>
+
+	<script type="text/template" id="app-view-template">
+		<div class="top-bar-container"></div>
+		<div class="players-container"></div> 
+		<div class="edit-pane-container"></div>
+	</script>
+
+	<script type="text/template" id="top-bar-template">
+		<button class="next-turn">Next Turn</button>
+	</script>
+
+	<script type="text/template" id="players-list-template">
+		<div class="players-controls">
+			<input type="text" class="player-input"></input>
+			<button disabled="disabled" class="add-player">Add</button>
+			<button disabled="disabled" class="kill-selected">Kill</button>
+		</div>
+		<div class="players-list">
+			
+			</div>
+	</script>
+
+	<script type="text/template" id="player-item-template">
+		<div class="name-go-here"><%= name %></div>
+		<input type="checkbox" class="kill-box"></input>
+		<div class="because-i-can">ICONS!</div>
+	</script>
+
+	<script type="text/template" id="edit-pane-template">
+		<div class="name-go-here"><%= name %></div>
+		<textarea class="player-notes" rows="25" cols="45"><%= notes %></textarea>
+		<button class="save-edit">Save</button>
+	</script>
+</body>
+
+</html>
+
+
+
+<!-- <script src="js/libs/jquery-2.1.1.min.js"></script>
+<script src="js/libs/underscore-min.js"></script>
+<script src="js/libs/backbone-min.js"></script>
+<script src="js/libs/require.js"></script>
+<script src="js/models/player.js"></script>
+<script src="js/collections/players.js"></script>
+<script src="js/views/app.js"></script>
+<script src="js/views/edit.js"></script>
+<script src="js/views/player.js"></script>
+<script src="js/views/players.js"></script>
+<script src="js/views/topbar.js"></script>
+<script src="js/main.js"></script> -->
+
+
+
