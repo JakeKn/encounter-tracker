@@ -4,8 +4,7 @@ define(function (require) {
 	// DEPENDENCIES
 	// ----------------------------------------
 
-	var $ = require('jquery'),
-		_ = require('underscore'),
+	var _ = require('underscore'),
 		Backbone = require('backbone'),
 		PlayerView = require('views/player'),
 		Template = require('text!templates/players.html');
