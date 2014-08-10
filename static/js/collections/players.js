@@ -41,20 +41,18 @@ define(function (require) {
 		advanceTurn: function(){
 			var active = this.findWhere({"active" : true});
 			var turn = this.indexOf(active);
+			var hadTurn = this.where({'hadTurn':true});
 			this.at(turn).set('active', false);
 			if (turn+1 >= this.length) {
-				var hadTurn= this.where({'hadTurn': true});
 				hadTurn.forEach(function(model){
-					model.set('hadTurn': false)
-					}
+					model.set('hadTurn', false);
+				});
 				this.at(0).set('active', true);
 			}
 			else{
 				this.at(turn).set('hadTurn', true);
 				this.at(turn+1).set('active', true);
 			}
-			console.log(this.findWhere({"active" : true}).get('name'));
-
 		}
 	});
 
