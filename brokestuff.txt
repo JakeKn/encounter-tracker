@@ -8,3 +8,5 @@ OK "kill" on active player
 		OK when it gets to the end of the list and goes back to number one, before it sets it, it runs through the list and removes that attribute from all of them to clean it up
 	the destroy method  
 		OK go through and activate the first one that hasn't had a turn this time, or start from the beginning
+
+"kill" on active player BEFORE "start turns" button is clicked

@@ -29,6 +29,7 @@ define(function (require) {
 		initialize:	function () {
 			this.listenTo(this.model, "destroy", this.remove);
 			this.listenTo(this.model, "change:selected", this.toggleSelected);
+			this.listenTo(this.model, "change:active", this.toggleActive);
 		},
 
 		render:	function () {
@@ -60,6 +61,10 @@ define(function (require) {
 
 		toggleSelected:	function (model, isSelected) {
 			this.$el.toggleClass('selected', isSelected);
+		},
+
+		toggleActive: function (model, isActive) {
+			this.$el.toggleClass('active', isActive);
 		}
 	});
 

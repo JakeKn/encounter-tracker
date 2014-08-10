@@ -34,6 +34,7 @@ define(function (require) {
 
 				console.log('active died: setting ' + next.get('name'));
 			}
+			
 		},
 
 		hasChecked:	function(){

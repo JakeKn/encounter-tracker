@@ -66,3 +66,7 @@
 .player-item.selected{
 	background :	rgba(0,0,255,0.2);
 }
+
+.player-item.active{
+	border : 2px solid black;
+}

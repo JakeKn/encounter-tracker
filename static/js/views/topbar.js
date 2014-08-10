@@ -35,7 +35,6 @@ define(function (require) {
 			this.collection.firstTurn();
 			this.turnBtn.html('Next Turn');
 			this.turnBtn.toggleClass('start-turn next-turn');
-			console.log('active: '+ this.collection.findWhere({active: true}).get('name'));
 		},
 
 		advanceTurn: function () {
