@@ -32,7 +32,7 @@ define(function (require) {
 		},
 
 		advanceTurn: function () {
-			this.collection.advanceTurn(this);
+			this.collection.advanceTurn();
 		}
 
 	});
