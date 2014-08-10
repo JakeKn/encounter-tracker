@@ -13,10 +13,11 @@ define(function (require) {
 
 	return Backbone.Model.extend({
 		defaults: {
-			name		: 	"participant",
-			notes		: 	"",
-			checked		:	false,
-			selected	:	false
+			name : "participant",
+			notes: "",
+			checked: false,
+			selected: false,
+			hadTurn: false
 		},
 
 		select: function () {

@@ -25,16 +25,14 @@ define(function (require) {
 				//}
 			});
 			var alive = this.findWhere({'active' : true});
-			var next = this.findWhere({'hadTurn' : true});
+			var next = this.findWhere({'hadTurn' : false});
 			if (!alive){
-				console.log('active guy died');
-				
-
-					//
-					//This is what is weird and needs to be fixed
-					//
 				next.set('active', true);
-				console.log('setting ' + next.get('name'));
+            	
+
+				//Console log to show the active guy died and which guy is being set as the new active guy	
+
+				console.log('active died: setting ' + next.get('name'));
 			}
 		},
 
@@ -71,11 +69,12 @@ define(function (require) {
 				this.at(turn+1).set('active', true);
 			}
 
-			// Console Logs to show who whow the currently active player is
+			// Console Logs to show who who the currently active player is
 			// and how many turns have ended this round
-			
-			console.log('active guy: ' + active.get('name'));
-			console.log('Turns ended this round: ' + hadTurn.length);
+			var newActive = this.findWhere({"active" : true});
+			var newHadTurn = this.where({'hadTurn': true});
+			console.log('active guy: ' + newActive.get('name'));
+			console.log('Turns ended this round: ' + newHadTurn.length);
 		}
 	});
 
