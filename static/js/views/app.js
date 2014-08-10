@@ -38,7 +38,7 @@ define(function (require) {
 			this.$el.find('.players-container').append(playersView.el);
 
 			// THESE ARE FOR DEBUGGING ONLY!
-			this.players.add({ name: 'a', selected: true, active: true});
+			this.players.add({ name: 'a', selected: true});
 			this.players.add({ name: 'b' });
 
 			return this;

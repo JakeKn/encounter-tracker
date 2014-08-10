@@ -50,7 +50,7 @@ define(function (require) {
 		},
 
 		firstTurn:	function(view){
-			
+			this.at(0).set({'active': true});
 		},
 
 		advanceTurn: function(){

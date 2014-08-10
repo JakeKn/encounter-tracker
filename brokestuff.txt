@@ -1,10 +1,10 @@
 
 
 
-"kill" on active player
+OK "kill" on active player
 	
 	OK the next turn button , 
 		OK before it activates the next player sets a "had a turn this round" attribute on the model
 		OK when it gets to the end of the list and goes back to number one, before it sets it, it runs through the list and removes that attribute from all of them to clean it up
 	the destroy method  
-		go through and activate the first one that hasn't had a turn this time, or start from the beginning
+		OK go through and activate the first one that hasn't had a turn this time, or start from the beginning
