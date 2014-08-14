@@ -9,4 +9,6 @@ OK "kill" on active player
 	the destroy method  
 		OK go through and activate the first one that hasn't had a turn this time, or start from the beginning
 
-"kill" on active player BEFORE "start turns" button is clicked
+OK issue with selecting a new active player when all plaers are removed and new ones added
+	
+	OK rearrange active player setting methods - one method to set either the current player or first available player.  one method to change "start" button to "next" button and call the active set method
