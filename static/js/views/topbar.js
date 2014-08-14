@@ -23,6 +23,10 @@ define(function (require) {
 			"click .next-turn": "advanceTurn"
 		},
 
+		initialize: function(){
+			this.listenTo(this.collection, "destroy", this.resetButton);
+		},
+
 		render:	function () {
 			this.$el.html(this.template());
 			this.turnBtn = this.$el.find('.turn-button');
@@ -32,14 +36,26 @@ define(function (require) {
 		},
 
 		firstTurn: function () {
-			this.collection.firstTurn();
-			this.turnBtn.html('Next Turn');
-			this.turnBtn.toggleClass('start-turn next-turn');
+			if (this.collection.length){
+				this.collection.advanceTurn();
+				this.turnBtn.html('Next Turn');
+				this.turnBtn.toggleClass('start-turn next-turn');
+			}
 		},
 
 		advanceTurn: function () {
 			this.collection.advanceTurn();
+
+		},
+
+		resetButton: function(){
+			if (!this.collection.length){
+				this.turnBtn.html('Start Turns');
+				this.turnBtn.toggleClass('start-turn', true);
+				this.turnBtn.toggleClass('next-turn', false);
+			}
 		}
+
 
 	});
 

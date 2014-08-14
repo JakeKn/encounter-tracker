@@ -54,9 +54,9 @@ define(function (require) {
 			player.set("selected", true);
 		},
 
-		firstTurn:	function(view){
-			this.at(0).set({'active': true});
-		},
+		//firstTurn:	function(view){
+		//	this.at(0).set({'active': true});
+		//},
 
 		advanceTurn: function(){
 			var active = this.findWhere({"active" : true});
@@ -76,15 +76,17 @@ define(function (require) {
 					this.at(turn+1).set('active', true);
 				}
 			}
-			else{
-				this.firstTurn();
+			else if (this.at(0)) {
+				this.at(0).set({'active': true});
 			}
 			// Console Logs to show who who the currently active player is
 			// and how many turns have ended this round
 			// DEBUGGY STUFF HERE
 				var newActive = this.findWhere({"active" : true});
 				var newHadTurn = this.where({'hadTurn': true});
-				console.log('active guy: ' + newActive.get('name'));
+				if (newActive){
+					console.log('active guy: ' + newActive.get('name'));
+				}
 				console.log('Turns ended this round: ' + newHadTurn.length);
 		}
 	});
