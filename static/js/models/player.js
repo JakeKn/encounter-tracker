@@ -17,7 +17,8 @@ define(function (require) {
 			notes: "",
 			checked: false,
 			selected: false,
-			hadTurn: false
+			hadTurn: false,
+			active: false
 		},
 
 		select: function () {

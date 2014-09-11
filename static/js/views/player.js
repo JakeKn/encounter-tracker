@@ -36,6 +36,7 @@ define(function (require) {
 			var playerData = this.model.toJSON();
 			this.$el.html(this.template(playerData));
 			this.$el.toggleClass('selected', playerData.selected);
+			this.$el.toggleClass('active', playerData.active);
 			if (playerData.selected) {
 				this.initializeEditView();
 			}
