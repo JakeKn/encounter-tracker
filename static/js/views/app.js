@@ -40,6 +40,12 @@ define(function (require) {
 			// THESE ARE FOR DEBUGGING ONLY!
 			this.players.add({ name: 'a', selected: true});
 			this.players.add({ name: 'b' });
+			this.players.add({ name: 'c' });
+			this.players.add({ name: 'd' });
+			this.players.add({ name: 'e' });
+			this.players.add({ name: 'f' });
+			this.players.add({ name: 'g' });
+			this.players.add({ name: 'h' });
 
 			return this;
 		}

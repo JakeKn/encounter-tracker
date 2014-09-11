@@ -1,10 +1,11 @@
 
 requirejs.config({
 	paths: {
-		jquery: 'libs/jquery-2.1.1.min',
-		underscore: 'libs/underscore-min',
-		backbone: 'libs/backbone-min',
-		text: 'libs/text'
+		jquery: 'libs/jquery-2.1.1',
+		underscore: 'libs/underscore',
+		backbone: 'libs/backbone',
+		text: 'libs/text',
+		sortable: 'libs/jquery.sortable'
 	},
 	shim: {
 		jquery: {
