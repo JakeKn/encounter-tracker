@@ -18,7 +18,7 @@ define(function (require) {
 
 	return Backbone.View.extend({
 
-		className: "player-item",
+		className: "player-item is-dropTarget",
 		template: _.template(Template),
 
 		events:	{
@@ -26,8 +26,15 @@ define(function (require) {
 			"click": "select"
 		},
 
+		attributes: function () {
+			return {
+				"draggable": true,
+				"data-cid": this.model.cid
+			};
+		},
+
 		initialize:	function () {
-			this.listenTo(this.model, "destroy", this.remove);
+			this.listenTo(this.model, "remove destroy", this.remove);
 			this.listenTo(this.model, "change:selected", this.toggleSelected);
 			this.listenTo(this.model, "change:active", this.toggleActive);
 		},

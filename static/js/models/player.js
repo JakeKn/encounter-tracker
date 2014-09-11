@@ -23,6 +23,10 @@ define(function (require) {
 
 		select: function () {
 			this.collection.select(this);
+		},
+
+		getIndex: function () {
+			return this.collection.indexOf(this);
 		}
 	});
 

@@ -28,6 +28,35 @@ define(function (require) {
 		initialize:	function () {
 			this.listenTo(this.collection, "add", this.addPlayerView);
 			this.listenTo(this.collection, "change:checked", this.killButtonToggle);
+
+            this.el.addEventListener('dragstart', this.handleDragStart.bind(this), false);
+            this.el.addEventListener('dragover', this.handleDragOver.bind(this), false);
+            this.el.addEventListener('drop', this.handleDrop.bind(this), false);
+		},
+
+		handleDragStart: function (event) {
+			var modelId = event.target.dataset.cid;
+			event.dataTransfer.setData('cid', modelId);
+		},
+
+		handleDragOver: function (event) {
+			var playerEl = $(event.target).closest('.player-item');
+
+            if (playerEl.hasClass('is-dropTarget')) {
+                event.preventDefault();
+            }
+		},
+
+		handleDrop: function (event) {
+			var targetId = $(event.target).closest('.player-item').data('cid'),
+                targetIndex = this.collection.get(targetId).getIndex(),
+                sourceId = event.dataTransfer.getData('cid'),
+                sourceModel = this.collection.get(sourceId);
+
+			this.collection.remove(sourceModel);
+			this.collection.add(sourceModel, { at: targetIndex }); 
+ 
+            event.preventDefault();
 		},
 
 		render:	function () {
@@ -40,16 +69,25 @@ define(function (require) {
 			return this;
 		},
 
-		addPlayerView:	function (model) {
+		addPlayerView:	function (model, collection, options) {
 			var childView	= new PlayerView({model : model});
 			childView.render();
-			this.$el.find(".players-list").append(childView.el);
+
+			if (options.at !== undefined) {
+
+				var previousEl = this.$el.find(".player-item").eq(options.at);
+				childView.$el.insertBefore(previousEl);
+
+			} else {
+				this.$el.find(".players-list").append(childView.el);
+			}
+			
 		},
 
 		addNewPlayer: function () {
 			var value = this.input.val();
 			this.input.val("");
-			if (value !== ""){
+			if (value !== "") {
 				this.collection.add({name : value});
 			}
 			this.addBtn.attr("disabled", true);

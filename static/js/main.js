@@ -4,8 +4,7 @@ requirejs.config({
 		jquery: 'libs/jquery-2.1.1',
 		underscore: 'libs/underscore',
 		backbone: 'libs/backbone',
-		text: 'libs/text',
-		sortable: 'libs/jquery.sortable'
+		text: 'libs/text'
 	},
 	shim: {
 		jquery: {
