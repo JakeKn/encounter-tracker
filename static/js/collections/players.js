@@ -18,24 +18,23 @@ define(function (require) {
 		model: PlayerModel,
 
 		removeChecked:	function(){
-			var deadMen	= this.where({"checked" : true});
-			deadMen.forEach(function(model){ 
-				
-				//  ??????????????????????????
+			var deadMen	= this.where({ "checked": true });
 
-				//if (model.get("checked")){
-					model.destroy();
-				//}
+			deadMen.forEach(function (model) {
+				model.destroy();
 			});
-			var alive = this.findWhere({'active' : true});
-			var next = this.findWhere({'hadTurn' : false});
+
+			this.trigger('removed:players');
+		},
+
+		activateNextAvailable: function () {
+			var alive = this.findWhere({ 'active': true });
+			var next = this.findWhere({ 'hadTurn': false });
+		
 			if (!alive && next){
 				next.set('active', true);
-            	
 
-				//Console log to show the active guy died and which guy is being set as the new active guy	
-				// DEBUGGY STUFF HERE
-
+				// TODO - remove this
 				console.log('active died: setting ' + next.get('name'));
 			}
 			

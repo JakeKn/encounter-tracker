@@ -25,7 +25,8 @@ define(function (require) {
 			this.playersView = params.playersView;
 			this.topBarView = params.topBarView;
 
-			this.listenTo(this.players, 'edit:player', this.createEditView);
+			this.listenTo(this.playersCollection, 'edit:player', this.createEditView);
+			this.listenTo(this.playersCollection, 'removed:players', this.activateNextAvailable);
 		},
 
 		createEditView: function (model) {
@@ -35,6 +36,12 @@ define(function (require) {
 
 			this.editView = new EditView({ model: model }).render();
 			this.$el.find(".edit-pane-container").append(this.editView.el);
+		},
+
+		activateNextAvailable: function () {
+			if (this.model.isInPlay()) {
+				this.playersCollection.activateNextAvailable();
+			}
 		},
 
 		render:	function () {

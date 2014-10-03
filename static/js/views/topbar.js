@@ -19,42 +19,50 @@ define(function (require) {
 		template: _.template(Template),
 
 		events:	{
-			"click .start-turn": "firstTurn",
-			"click .next-turn": "advanceTurn"
+			"click .turn-button": "handleClick"
 		},
 
 		initialize: function(){
-			this.listenTo(this.collection, "destroy", this.resetButton);
+			// this.listenTo(this.collection, "destroy", this.resetButton);
+			this.listenTo(this.model, 'change:inPlay', this.updateButtonLabel);
 		},
 
 		render:	function () {
 			this.$el.html(this.template());
-			this.turnBtn = this.$el.find('.turn-button');
-			this.turnBtn.html('Start Turns');
-			this.turnBtn.toggleClass('start-turn');
 			return this;
 		},
 
+		updateButtonLabel: function (model, inPlay) {
+			var label = inPlay ? 'Next Turn' : 'Start Turns';
+			this.$el.find('.turn-button').text(label);
+		},
+
+		handleClick: function () {
+			if (this.model.isInPlay()) {
+				this.advanceTurn();
+			} else {
+				this.firstTurn();
+			}
+		},
+
 		firstTurn: function () {
-			if (this.collection.length){
+			this.model.startPlay();
+
+			if (this.collection.length) {
 				this.collection.advanceTurn();
-				this.turnBtn.html('Next Turn');
-				this.turnBtn.toggleClass('start-turn next-turn');
 			}
 		},
 
 		advanceTurn: function () {
 			this.collection.advanceTurn();
-
 		},
 
-		resetButton: function(){
-			if (!this.collection.length){
-				this.turnBtn.html('Start Turns');
-				this.turnBtn.toggleClass('start-turn', true);
-				this.turnBtn.toggleClass('next-turn', false);
-			}
-		}
+		// resetButton: function () {
+		// 	// TODO unfuck this
+		// 	if (!this.collection.length){
+		// 		this.turnBtn.html(startTurnLabel);
+		// 	}
+		// }
 
 
 	});
