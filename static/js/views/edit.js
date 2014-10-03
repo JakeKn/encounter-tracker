@@ -22,19 +22,12 @@ define(function (require) {
 		},
 
 		initialize:	function () {
-			this.listenTo(this.model, "change:selected", this.cleanup);
 			this.listenTo(this.model, "destroy", this.remove);
 		},
 
-		cleanup: function (model, isSelected) {
-			if (! isSelected) {
-				this.remove();
-			}
-		},
-
 		render:	function () {
-			var playerData = this.model.toJSON();
-			this.$el.html(this.template(playerData));
+			var data = this.model.toJSON();
+			this.$el.html(this.template(data));
 			return this;
 		},
 

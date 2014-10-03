@@ -10,6 +10,7 @@ define(function (require) {
 		Players = require('collections/players'),
 		PlayersView = require('views/players'),
 		TopBarView = require('views/topbar'),
+		EditView = require('views/edit'),
 		Template = require('text!templates/app.html');
 
 
@@ -23,6 +24,17 @@ define(function (require) {
 
 		initialize: function () {
 			this.players = new Players();
+
+			this.listenTo(this.players, 'edit:player', this.createEditView);
+		},
+
+		createEditView: function (model) {
+  			if (this.editView) {
+  				this.editView.remove();
+  			}
+
+			this.editView = new EditView({ model: model }).render();
+			this.$el.find(".edit-pane-container").append(this.editView.el);
 		},
 
 		render:	function () {

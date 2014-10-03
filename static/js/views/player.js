@@ -8,7 +8,6 @@ define(function (require) {
 	var $ = require('jquery'),
 		_ = require('underscore'),
 		Backbone = require('backbone'),
-		EditView = require('views/edit'),
 		Template = require('text!templates/player.html');
 
 
@@ -40,13 +39,17 @@ define(function (require) {
 		},
 
 		render:	function () {
-			var playerData = this.model.toJSON();
-			this.$el.html(this.template(playerData));
-			this.$el.toggleClass('selected', playerData.selected);
-			this.$el.toggleClass('active', playerData.active);
-			if (playerData.selected) {
-				this.initializeEditView();
+			var data = this.model.toJSON();
+
+			this.$el
+				.html(this.template(data))
+				.toggleClass('selected', data.selected)
+				.toggleClass('active', data.active);
+
+			if (data.selected) {
+				this.model.edit();
 			}
+
 			return this;
 		},
 
@@ -58,14 +61,7 @@ define(function (require) {
 
 		select:	function () {
 			this.model.select();
-			this.initializeEditView();
-		},
-
-		initializeEditView: function () {
-			var editView = new EditView({model : this.model});
-			editView.render();
-			$(".edit-pane-container").append(editView.el);
-		},
+ 		},
 
 		toggleSelected:	function (model, isSelected) {
 			this.$el.toggleClass('selected', isSelected);

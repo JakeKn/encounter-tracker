@@ -23,6 +23,11 @@ define(function (require) {
 
 		select: function () {
 			this.collection.select(this);
+			this.edit();
+		},
+
+		edit: function () {
+			this.trigger('edit:player', this);
 		},
 
 		getIndex: function () {
