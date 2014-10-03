@@ -7,8 +7,6 @@ define(function (require) {
 
 	var _ = require('underscore'),
 		Backbone = require('backbone'),
-		Players = require('collections/players'),
-		PlayersView = require('views/players'),
 		TopBarView = require('views/topbar'),
 		EditView = require('views/edit'),
 		Template = require('text!templates/app.html');
@@ -22,8 +20,10 @@ define(function (require) {
 		className: "app",
 		template: _.template(Template),
 
-		initialize: function () {
-			this.players = new Players();
+		initialize: function (params) {
+			this.playersCollection = params.playersCollection;
+			this.playersView = params.playersView;
+			this.topBarView = params.topBarView;
 
 			this.listenTo(this.players, 'edit:player', this.createEditView);
 		},
@@ -40,24 +40,11 @@ define(function (require) {
 		render:	function () {
 			this.$el.html(this.template());
 
-			var playersView = new PlayersView({
-				collection: this.players
-			}).render();
+			this.playersView.render();
+			this.topBarView.render();
 
-			var topBar = new TopBarView({collection: this.players}).render();
-
-			this.$el.find('.top-bar-container').append(topBar.el);
-			this.$el.find('.players-container').append(playersView.el);
-
-			// THESE ARE FOR DEBUGGING ONLY!
-			this.players.add({ name: 'a', selected: true});
-			this.players.add({ name: 'b' });
-			this.players.add({ name: 'c' });
-			this.players.add({ name: 'd' });
-			this.players.add({ name: 'e' });
-			this.players.add({ name: 'f' });
-			this.players.add({ name: 'g' });
-			this.players.add({ name: 'h' });
+			this.$el.find('.top-bar-container').append(this.topBarView.el);
+			this.$el.find('.players-container').append(this.playersView.el);
 
 			return this;
 		}
